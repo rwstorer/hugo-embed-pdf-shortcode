@@ -1,14 +1,29 @@
 {{- if not ($.Page.Scratch.Get "embed-pdf-count") -}}
-
+<!-- I added the @media print CSS to stop it from printing the PDF canvas -->
 <script type="text/javascript" src= '/js/pdf-js/build/pdf.js'></script>
 
 <style>
+  .pdf-paginator {
+    @media print {
+      display: none !important;
+    }
+  }
+
+  .pdf-source {
+    @media print {
+      display: none !important;
+    }    
+  }
+
   #embed-pdf-container {
     position: relative;
     width: 100%;
     height: auto;
     min-height: 20vh;
     /* overflow-y:scroll; */
+    @media print {
+      display: none !important;
+    }
   }
   
   .pdf-canvas {
@@ -17,6 +32,9 @@
     width: 100%;
     height: auto;
     display: none;
+    @media print {
+      display: none !important;
+    }
   }
   
   #the-canvas {
@@ -25,6 +43,9 @@
     width: 100%;
     height: auto;
     display: none;
+    @media print {
+      display: none !important;
+    }
   }
   
   
@@ -55,6 +76,9 @@
     word-wrap: break-word;
     display: grid;
     justify-content: end;
+    @media print {
+      display: none !important;
+    }
   }
   
   #overlayText a {
@@ -69,11 +93,17 @@
     border-radius: 12px;
     border-color: #00000030;
     text-decoration: none;
+    @media print {
+      display: none !important;
+    }  
   }
   
   #overlayText svg {
     height: clamp(1em, 2vw, 1.4em);
     width:  clamp(1em, 2vw, 1.4em);
+    @media print {
+      display: none !important;
+    }
   }
   
   
